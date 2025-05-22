@@ -1,0 +1,9 @@
+langchain-text-splitter
+langchain-community 
+langgraph
+langchain
+langchainhub 
+langchain-chroma 
+beautifulsoup4
+langchain_together
+scikit-learn
