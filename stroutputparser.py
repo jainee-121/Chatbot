@@ -23,3 +23,4 @@ parser=StrOutputParser()
 chain=template1 | llm | parser | template2 | llm | parser
 result=chain.invoke({'topic':"L J university"})
 print(result)
+chain.get_graph().print_ascii()

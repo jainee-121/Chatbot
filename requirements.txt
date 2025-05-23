@@ -8,3 +8,4 @@ beautifulsoup4
 langchain_together
 scikit-learn
 pydantic[email]
+grandalf
