@@ -11,6 +11,7 @@ from langchain_together import ChatTogether
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from sklearn.metrics.pairwise import cosine_similarity
+from langchain_core.messages import SystemMessage,HumanMessage,AIMessage
 
 loader=TextLoader("train.txt")
 doc=loader.load()
@@ -50,13 +51,31 @@ The temperature parameter controls the randomness of the output.
 if it is near 0 the answer will be determinstic.
 if it is near 1 the answer will be more creative.
 '''
-llm= ChatTogether(model="mistralai/Mixtral-8x7B-Instruct-v0.1",temperature=0.5)
+llm= ChatTogether(model="meta-llama/Llama-3-70b-chat-hf",temperature=0.5)
 chain= template | llm
 answer=chain.invoke({
-    'context':'grill kitchen',
     'question':'what is the menu of restaurant?'
-})
+}) 
+
+#simply qna messaging chatbot
 # answer=llm.invoke(prompt)
+# while True:
+#     user_input=input("You :")
+#     if user_input =="exit":
+#         break
+#     answer=llm.invoke(user_input)
+#     print("AI :",answer.content)
+
+#using history
+# history=[]
+# message=[
+#     SystemMessage(content="you are a helpful ai assitant"),
+#     HumanMessage(content="Hello")
+# ]
+# answer=llm.invoke(message)
+# message.append(AIMessage(content=answer.content))
+# print(message)
+
 print(answer.content)
 
 retriever = vectorstore.as_retriever()

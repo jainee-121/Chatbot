@@ -1,7 +1,6 @@
 {
     "name": null,
     "input_variables": [
-        "context",
         "question"
     ],
     "optional_variables": [],
@@ -9,7 +8,7 @@
     "partial_variables": {},
     "metadata": null,
     "tags": null,
-    "template": "\nYou are a helpful assistant. Use the provided context to answer the user's question.\n\nContext:\n{context}\n\nQuestion: {question}\nAnswer:\n",
+    "template": "\n    You are a helpful assistant. Use the provided context to answer the user's question.\n\n\nQuestion: {question}\nAnswer:\n",
     "template_format": "f-string",
     "validate_template": true,
     "_type": "prompt"
